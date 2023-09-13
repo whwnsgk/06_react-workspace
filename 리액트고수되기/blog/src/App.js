@@ -14,7 +14,7 @@ function App() { /*그럼 이게 달라 펑션 같은건가?*/
   var count = 0 ; 
   let copy = [...a] ; 
 
-  let [index , setIndex] = useState(999); //뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지
+  let [title , setTitle] = useState(999); //뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지
   //뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지
   //뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지뭐지
 
@@ -25,6 +25,7 @@ function App() { /*그럼 이게 달라 펑션 같은건가?*/
   let [logo , setLogo] = useState('ReactBlog');
   let [따봉 , 따봉변경] = useState([0,0,0]);
 
+  let [addInput, setAddInput]  = useState('');  
   
  
    
@@ -37,9 +38,9 @@ function App() { /*그럼 이게 달라 펑션 같은건가?*/
 
       <h4>{post}</h4>
       <button onClick={()=>{
-
+         console.log(a);
       }}>실험용버튼</button>
-
+      
       
       <button onClick={()=> { 
        
@@ -94,21 +95,49 @@ function App() { /*그럼 이게 달라 펑션 같은건가?*/
                 <div className='list'>
                   <h4 onClick={()=>{
                      modal == true ? setModal(false) : setModal(true) ;
-                     setIndex(i);
+                     setTitle(i);
                      
-                  }}>{a}<span onClick={()=>{
+                  }}>{a}<span onClick={(e)=>{
+                    e.stopPropagation(); //이벤트 버블링을 막는다. 자바스크립트 고질병인데 클릭이벤트는 무조건 버블링이 된다. 막고 싶으면 이렇게 막아줘야 한다.
                     let copy = [...따봉];
                     copy[i] = copy[i] + 1 ; 
                     따봉변경(copy);
                     }}>👍</span>{따봉[i]}</h4>
                   <p>9월11일 발행</p>
+                  <button onClick={()=>{
+                    console.log(a);
+                    let copy = [...a];
+                   
+                    copy.splice(i,1);
+                  
+                    b(copy);
+                    console.log(a);
+                  }}>삭제에</button>
                 </div>
             )
           })
         }
 
+        < input onChange={(e)=> {
+            //console.log(e.target.value);
+            setAddInput(e.target.value);
+            console.log(addInput);
+
+            //자바스크립트는 좀 병신인게 빠른 연산부터 처리 하기떄문에 console.log 먼저 처리한다 뭐여 시벌
+            //늦게 처리된다 => 비동기 처리 어..? 근데 이러면 안되지 않냐 
+
+        }}/>
+        <button onClick={()=> {
+          let copy = [...a];
+          copy.unshift(addInput);
+          b(copy);
+        }}>글추가</button>
+       
+
+
+
 {
-  modal == true ? <Modal setName={b}    name = {a}   index = {index} /> : null  
+  modal == true ? <Modal setName={b}    name = {a}   title = {title} /> : null  
 }
 
     </div>
@@ -120,7 +149,7 @@ function Modal (props){ //앞글자가 대문자면 컴포넌트 이다 .
   return(
     <div>
       <div className='modal'>
-        <h4>{props.name[props.index]}</h4>
+        <h4>{props.name[props.title]}</h4>
         <p>날짜</p>
         <p>상세내용</p>
         <button onClick={()=>{
