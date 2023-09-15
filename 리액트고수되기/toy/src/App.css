@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&family=Noto+Sans+KR:wght@100&display=swap');
+.App{
+  padding : 20px;
+
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.App {
+  text-align: center;
+  background-color: black;
+
+
+  font-weight: 500;
+  font-style: normal;
+
+}
+#main-bg-cover{
+  margin-top: 100px;
+}
+
+.main-bg{
+  
+  height: 300px;
+  width: 1000px;
+  background-image: url('./img/Icon3.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+}
+
+#detail{
+  color: rgb(240, 226, 226);
+  
+  margin-top: 100px;
+}
+#detailImg{
+  height: 500px;
+  max-width: 100%;
+
+  border: 1px solid  rgb(233, 221, 221);
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#detailTitle{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#detailStory{
+  
+  width: 500px;
+  margin: auto;
+
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#detailInfo{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#concert{
+  color:  rgb(233, 221, 221);
+}
+#intro{
+  color: rgb(233, 221, 221);
+}

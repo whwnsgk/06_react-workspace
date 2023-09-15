@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap');
+.App{
+  padding : 20px;
+  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+}

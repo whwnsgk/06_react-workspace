@@ -21,9 +21,6 @@ function App() {
 
       <Button variant="primary">어서오세요</Button>{' '}
       <>
-      
-
-
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="#home">하위</Navbar.Brand>
           <Nav className="mr-auto">
@@ -56,6 +53,7 @@ function App() {
                                 
                                 return(
                                 <Card shoes = {shoes} i = {i} imgPath = {imgPath} />
+                                
                                 )
                               })
                           }   

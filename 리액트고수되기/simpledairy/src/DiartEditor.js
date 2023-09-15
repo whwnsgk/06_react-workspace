@@ -16,17 +16,20 @@ const DiaryEditor = ({onCreate}) => { //prop 대신에 이렇게 인자 자체�
         setState({
             ...state, //spread 문법 : 전부 현재 있는걸로 세팅하겠다는뜻 밑에 어차피 원하는값 수정할꺼라서 이렇게 해도됨
             [e.target.name]: e.target.value // [] 대괄호의 뜻은 객체 속성의 key 값을 뜻한다
+            
         })
-
+        console.log(state.emotion);
     }
 
     function handleChangeState2(e){
         setState({
             author : state.author,
             content : state.content,
+            emotion : state.emotion,
             //...state, 
             //spread 문법 : 전부 현재 있는걸로 세팅하겠다는뜻 밑에 어차피 원하는값 수정할꺼라서 이렇게 해도됨
             [e.target.name]: e.target.value // [] 대괄호의 뜻은 객체 속성의 key 값을 뜻한다
+            
         })
 
     }
@@ -47,7 +50,7 @@ const DiaryEditor = ({onCreate}) => { //prop 대신에 이렇게 인자 자체�
         setState({
             author : "",
             content : "",
-            emotion : 1 
+            emotion : 5 
         })
         
         alert("저장성공");
